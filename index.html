@@ -1,35 +1,335 @@
 <!DOCTYPE html>
-<html lang="ja">
- <head>
- <meta charset="utf-8">
- <title>サイトタイトル</title>
- <meta name="description" content="ディスクリプションを入力">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="style.css">
- <!-- [if lt IE 9] -->
- <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
- <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
- <!-- [endif] -->
- <script src="main.js"></script>
- </head>
- <body>
- <!----- header----->
- <header>ヘッダー</header>
- <nav>ナビ</nav>
- <!----- /header ----->
- 
- <!----- main ----->
- <article>
- <h1>コミット出来るか確認</h1>
- <section>
- <h2>見出し２</h2>
- <p>コンテンツの内容</p>
- </section>
- </article>
- <!----- /main ----->
- 
- <!----- footer ----->
- <footer>フッター</footer>
- <!----- /footer ----->
- </body>
+<html>
+
+<head>
+    <title>test2.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <style></style>
+</head>
+
+<body>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: document.body.classList.contains("vscode-dark") ||
+                document.body.classList.contains("vscode-high-contrast") ?
+                "dark" : "default",
+        });
+    </script>
+
+    <h1 id="Title">
+        <p>
+            <img src="images/Google_Chrome_icon.png" alt="Chrome_icon" width="50px" height="50px" align="bottom" />
+            Chrome拡張機能を利用した SetTimerAppと学びについて
+        </p>
+    </h1>
+    <h2 id="tableOfContents">目次</h2>
+    <hr />
+    <ul>
+        <li><a href="#overview">概要</a><br /></li>
+        <li><a href="#howToMake">Chrome拡張の作り方</a><br /></li>
+        <li><a href="#composition">ディレクトリ構成</a><br /></li>
+        <li><a href="#fileInside">ファイルの中身</a><br /></li>
+        <li>
+            <a href="#result">結果</a><br />
+            <ul>
+                <li><a href="#learning">学び</a><br /></li>
+                <li><a href="#diffcultPoint">苦労点</a><br /></li>
+                <li><a href="#impression">所感</a><br /></li>
+            </ul>
+        </li>
+    </ul>
+    <br />
+    <br />
+    <h2 id="overview">概要</h2>
+    <hr />
+    <p>
+        このページでは、製作したSetTimerAppの紹介とchrome拡張機能の導入について記載します。<br />
+        <br />
+    </p>
+    <table>
+        <thead>
+            <tr>
+                <th>機能</th>
+                <th>説明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>スタート</td>
+                <td>デフォルト03:00でタイマーをセットしカウントダウンを開始</td>
+            </tr>
+            <tr>
+                <td>ストップ</td>
+                <td>
+                    カウントダウンを一時停止。ストップ →
+                    スタートで再度カウントダウン開始
+                </td>
+            </tr>
+            <tr>
+                <td>リセット</td>
+                <td>セットタイマーを00:00に設定し、リセットする</td>
+            </tr>
+            <tr>
+                <td>ユーザーインプット</td>
+                <td>ユーザーが指定した時間をカウントダウンタイマーにセットする。</td>
+            </tr>
+            <tr>
+                <td>入力アラート</td>
+                <td>
+                    ユーザーインプットで数値以外の入力等、正しく入力された場合にアラートを表示。3秒後に自動で消える。
+                </td>
+            </tr>
+            <tr>
+                <td>背景色点滅</td>
+                <td>
+                    橙色点滅：10秒から0秒まで点滅　　赤色点滅：0秒になってから3回点滅
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <br />
+
+    <h2 id="howToMake">Chrome拡張の作り方</h2>
+    <hr />
+    <p>
+        すべてではないですが、今回のApp製作に使用していたURLです。<br />
+        ※ブログ等もございますので、ソースの信憑性が不明確なところもあります。<br />
+    </p>
+    <ol>
+        <li>
+            <p>
+                chrome extensionの公式HP<br />
+                情報量は多いがこれまでの講習である程度読み進めることが可能。またビジュアルマニュアルやsamlpeAppもあり分かりやすい。<br />
+                <a
+                    href="https://developer.chrome.com/docs/extensions/">https://developer.chrome.com/docs/extensions/</a>
+            </p>
+        </li>
+        <li>
+            <p>
+                Chrome拡張の作り方 (超概要)<br />
+                Chrome拡張の大まかな製作の流れをまとめたqiita<br />
+                <a
+                    href="https://qiita.com/RyBB/items/32b2a7b879f21b3edefc">https://qiita.com/RyBB/items/32b2a7b879f21b3edefc</a>
+            </p>
+        </li>
+        <li>
+            <p>
+                chrome拡張作り方まとめ<br />
+                Chrome拡張の大まかな製作の流れをまとめたqiita<br />
+                <a
+                    href="https://qiita.com/omukaik/items/4df89dd68a8359907d48">https://qiita.com/omukaik/items/4df89dd68a8359907d48</a>
+            </p>
+        </li>
+        <li>
+            <p>
+                Chrome 拡張機能のマニフェストファイルの書き方<br />
+                manifest.jsonの解説をまとめたqiita<br />
+                <a
+                    href="https://qiita.com/mdstoy/items/9866544e37987337dc79">https://qiita.com/mdstoy/items/9866544e37987337dc79</a>
+            </p>
+        </li>
+        <li>
+            <p>
+                Chrome拡張の開発方法まとめ その1：概念編<br />
+                Chrome拡張の実行内容・フォルダ構成をまとめたqiita<br />
+                <a
+                    href="https://qiita.com/k7a/items/26d7a22233ecdf48fed8">https://qiita.com/k7a/items/26d7a22233ecdf48fed8</a>
+            </p>
+        </li>
+        <li>
+            <p>
+                【結構簡単】ブラウザアクションボタン発火の自作Chrome拡張機能の作り方＆サンプル<br />
+                Webページをグレースケール化するブラウザアクションのハンズオン<br />
+                <a
+                    href="http://degitekunote.com/blog/2016/11/02/chrome-extension/">http://degitekunote.com/blog/2016/11/02/chrome-extension/</a>
+            </p>
+        </li>
+        <li>
+            <p>
+                manifest_version:2 から 3に修正するケース<br />
+                manifest_version:2
+                で記載されている参考ページが多い。2023年6月現在ではmanifest_version:3が必要。<br />
+                <a
+                    href="https://qiita.com/TiggeZaki/items/bb35afe43c347d38dc4e">https://qiita.com/TiggeZaki/items/bb35afe43c347d38dc4e</a>
+            </p>
+        </li>
+        <li>
+            <p>
+                画像サイズ変更 アイコン作成用<br />
+                簡易的に画像のサイズ変更が可能。<br />
+                <a href="https://www.iloveimg.com/ja">https://www.iloveimg.com/ja</a>
+            </p>
+        </li>
+        <li>
+            <p>
+                Chrome機能拡張のバックグラウンドページについて<br />
+                background.jsについての解説まとめ<br />
+                <a href="https://">https://oxynotes.com/?p=8906</a>
+            </p>
+        </li>
+    </ol>
+    <br />
+    <br />
+    <h2 id="composition">ディレクトリ構成</h2>
+    <hr />
+    <img class="image" src="images/ディレクトリアイコン.png" alt="ディレクトリアイコン" width="100px" height="100px" />
+    <div class="container">
+        <div class="image-container">
+            <img class="image" src="images/ディレクトリ構成図.png" alt="ディレクトリ構成図" width="300px" height="250px" />
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ファイル名</th>
+                        <th>説明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>iconxxx.png</td>
+                        <td>アプリのアイコンpng画像。今回は同じ画像を各サイズ用意</td>
+                    </tr>
+                    <tr>
+                        <td>timer.html</td>
+                        <td>アプリ実行時に表示されるhtml</td>
+                    </tr>
+                    <tr>
+                        <td>manifest.json</td>
+                        <td>Chrome拡張機能の機能と構成を記述するJSON</td>
+                    </tr>
+                    <tr>
+                        <td>background.js</td>
+                        <td>
+                            scriptsに初期化処理やAPI呼び出し、定期実行する処理、イベントリスナー等の記述等行うJavaScript
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>popup.js</td>
+                        <td>Appの動作を記述しているJavaScript</td>
+                    </tr>
+                    <tr>
+                        <td>style.css</td>
+                        <td>timer.htmlのスタイルを記述しているcss</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br />
+    <br />
+    <h2 id="fileInside">ファイルの中身</h2>
+    <hr />
+    <a href="https://gist.github.com/"><img class="image" src="images/github_gist_icon.png" alt="github_icon"
+            width="80px" height="80px" /></a>
+    <p>
+        SetTeimrAppのソースファイルを下記GitHub Gistにupしました。<br />
+        https://xxx 現在細くコメント記載中<br />
+    </p>
+    <br />
+    <br />
+
+    <h2 id="result">結果</h2>
+    <hr />
+
+    <h3 id="learning">学び</h3>
+
+    <ul>
+        <li>DOM操作について</li>
+        <li>モダンなWeb開発やUIコンポーネントフレームワークについて</li>
+    </ul>
+    <br>
+    <p>Web開発フレームワーク<br>
+        <a href="https://ja.legacy.reactjs.org/"><img class="image" src="images/React-icon.png" alt="React_icon"
+                width="100px" height="100px" /></a>
+        <a href="https://nodejs.org/ja"><img class="image" src="images/Nodejs.png" alt="Node.js_icon" width="100px"
+                height="100px" /></a>
+        <a href="https://expressjs.com/"><img class="image" src="images/express-js.png" alt="Express_icon" width="100px"
+                height="100px" /></a>
+        <a href="https://nextjs.org/"><img class="image" src="images/Nextjs_icon.png" alt="Next_js_icon" width="100px"
+                height="100px" /></a>
+        <a href="https://ja.vuejs.org/"><img class="image" src="images/vuejs_icon.png" alt="Vue.js_icon" width="100px"
+                height="100px" /></a>
+        <a href="https://angular.io/"><img class="image" src="images/Angula.png" alt="Angular_icon" width="100px"
+                height="100px" /></a>
+        <a href="https://emberjs.com/"><img class="image" src="images/emberjs.png" alt="emBer_icon" width="100px"
+                height="100px" /></a>
+        <a href="https://www.meteor.com/"><img class="image" src="images/meteor.png" alt="Meteor_icon" width="100px"
+                height="100px" /></a>
+    </p>
+    <p>UIコンポーネントフレームワーク<br>
+        <a href="https://getbootstrap.jp/"><img class="image" src="images/Bootstrap.png" alt="Bootstrap_icon"
+                width="100px" height="100px" /></a>
+        <a href="https://tailwindcss.com/"><img class="image" src="images/TailwindCSS.png" alt="tailwindcss_icon"
+                width="100px" height="100px" /></a>
+        <a href="https://mui.com/"><img class="image" src="images/Material-UI.png" alt="Material UI_icon" width="100px"
+                height="100px" /></a>
+        <a href="https://ant.design/"><img class="image" src="images/Ant Design.png" alt="AntDesign_js_icon"
+                width="100px" height="100px" /></a>
+        <a href="https://semantic-ui.com/"><img class="image" src="images/Semantic UI.png" alt="Semantic UI_icon"
+                width="100px" height="100px" /></a>
+        <a href="https://vuetifyjs.com/en/"><img class="image" src="images/Vuetify.png" alt="Vuetify_icon" width="100px"
+                height="100px" /></a>
+                <a href="https://daisyui.com/"><img class="image" src="images/daisyUI.png" alt="daisyUI_icon" width="100px"
+                    height="100px" /></a>
+    </p>
+    <br />
+    <h3 id="diffcultPoint">苦労点</h3>
+    <ul>
+        <li>
+            web上での動作制約について<br />
+            常にウィンドウの手前表示を維持する機能<br />
+            アラート機能の非表示の自動解除する機能<br />
+        </li>
+        <li>愚直に手打ちだと大変</li>
+    </ul>
+    <br />
+
+    <h3 id="impression">所感</h3>
+
+
+    <p>
+        web開発に限ったことではありませんが、実現可能か調査を織り込みながら要件定義を行い製作に取り掛かると<br />
+        結果的に工数低減につなげられたかなと思います。<br />
+        調べながら製作することで該当目的以外の知識も習得し、追加機能やデザインを凝りたくなります､､､が<br />
+        必要最低限の機能と優先順位付けも大切。テスト駆動開発の様な考え方が良いと感じました。<br />
+        ソースコードやエラーコードを避けない。成長を実感。<br />
+    </p>
+    
+    <!-- 紹介ページへ移動ボタン -->
+    <div class="btn-conteiner">
+        <a class="btn-content" href="intro/intro.html">
+            <span class="btn-title">本題へ</span>
+            <span class="icon-arrow">
+                <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <path id="arrow-icon-one"
+                            d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z"
+                            fill="#FFFFFF"></path>
+                        <path id="arrow-icon-two"
+                            d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z"
+                            fill="#FFFFFF"></path>
+                        <path id="arrow-icon-three"
+                            d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z"
+                            fill="#FFFFFF"></path>
+                    </g>
+                </svg>
+            </span>
+        </a>
+    </div>
+
+    <br />
+    <br />
+
+
+
+
+    
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</body>
+
 </html>
