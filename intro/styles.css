@@ -11,7 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 1200px;
+  width: 1000px;
 }
 
 #text-below-slideshow {
@@ -22,8 +22,8 @@ body {
 }
 
 .slideshow {
-  width: 1200px;
-  height: 910px;
+  width: 1000px;
+  height: 800px;
   position: relative;
   overflow: hidden;
 }
