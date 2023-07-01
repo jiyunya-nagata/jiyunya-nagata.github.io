@@ -209,7 +209,7 @@ button {
 
 body {
   background-image: url("images/background.jpg");
-  background-size: cover;
+  background-size: 70% auto; /* 幅を50%に縮小し、高さは自動調整します */
   background-repeat: no-repeat;
   background-position: center;
 }
