@@ -34,11 +34,12 @@ body {
 }
 
 .slideshow img {
-  width: 100%;
+  width: 80%;
   height: auto;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); /* 画像を中央に配置するためのトランスフォーム */
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
     /* 画像のふちを丸くぼかす */
